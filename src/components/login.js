@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Github, Twitter, Facebook, Mail, Lock, ArrowRight } from 'lucide-react';
-import './style.css';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Mail, Lock, ArrowRight } from "lucide-react";
+import "./style.css";
 
 const LoginPage = () => {
-  const [formData, setFormData] = useState({ email: '', password: '' });
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const navigate = useNavigate(); // For navigation
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -12,7 +13,14 @@ const LoginPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Logging in with:', formData);
+    console.log("Logging in with:", formData);
+
+    // Simulate authentication (replace with actual auth logic)
+    if (formData.email && formData.password) {
+      navigate("/app"); // Redirect to the main app (Feed/Layout)
+    } else {
+      alert("Invalid credentials");
+    }
   };
 
   return (
@@ -28,7 +36,9 @@ const LoginPage = () => {
           <div className="absolute inset-0 backdrop-blur-[2px]" />
           <div className="absolute bottom-8 left-8 right-8 text-white">
             <h2 className="text-2xl font-bold mb-2">Connect with friends</h2>
-            <p className="text-sm opacity-90">Join our community and stay connected with the people who matter most.</p>
+            <p className="text-sm opacity-90">
+              Join our community and stay connected with the people who matter most.
+            </p>
           </div>
         </div>
 
@@ -39,28 +49,12 @@ const LoginPage = () => {
             <p className="text-gray-600">Sign in to continue to your account</p>
           </div>
 
-          {/* Social Login Buttons */}
-          <div className="space-y-3 mb-8">
-            <button className="w-full flex items-center justify-center gap-2 bg-gray-900 text-white p-3 rounded-lg hover:bg-gray-800 transition">
-              <Github size={20} />
-              <span>Continue with Github</span>
-            </button>
-            <button className="w-full flex items-center justify-center gap-2 bg-[#1DA1F2] text-white p-3 rounded-lg hover:bg-[#1a8cd8] transition">
-              <Twitter size={20} />
-              <span>Continue with Twitter</span>
-            </button>
-            <button className="w-full flex items-center justify-center gap-2 bg-[#4267B2] text-white p-3 rounded-lg hover:bg-[#365899] transition">
-              <Facebook size={20} />
-              <span>Continue with Facebook</span>
-            </button>
-          </div>
-
           <div className="relative my-6">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-gray-200"></div>
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-4 bg-white text-gray-500">Or continue with email</span>
+              <span className="px-4 bg-white text-gray-900">Continue with email</span>
             </div>
           </div>
 
@@ -93,10 +87,15 @@ const LoginPage = () => {
 
             <div className="flex items-center justify-between text-sm">
               <label className="flex items-center gap-2">
-                <input type="checkbox" className="rounded border-gray-300 text-blue-500 focus:ring-blue-500" />
+                <input
+                  type="checkbox"
+                  className="rounded border-gray-300 text-blue-500 focus:ring-blue-500"
+                />
                 <span className="text-gray-600">Remember me</span>
               </label>
-              <a href="/terms" className="text-blue-500 hover:text-blue-600">Forgot password?</a>
+              <a href="/terms" className="text-blue-500 hover:text-blue-600">
+                Forgot password?
+              </a>
             </div>
 
             <button
@@ -108,8 +107,8 @@ const LoginPage = () => {
             </button>
           </form>
 
-          <p className="text-center text-gray-600 mt-4">
-            Don't have an account?{' '}
+          <p className="text-center text-gray-600 mt-6">
+            Don't have an account?{" "}
             <Link to="/signup" className="text-blue-500 hover:text-blue-600 font-medium">
               Sign up
             </Link>

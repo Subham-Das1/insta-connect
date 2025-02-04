@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Github, Twitter, Facebook, Mail, Lock, User, ArrowRight } from 'lucide-react';
+import {Mail, Lock, User, ArrowRight } from 'lucide-react';
 import './style.css';
-import signUpImg from "./img/sign-up.jpg";
+// import signUpImg from "./img/sign-up.jpg";
 
 const SignUpPage = () => {
   const [formData, setFormData] = useState({
@@ -23,28 +23,12 @@ const SignUpPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-blue-50 flex items-center justify-center p-4">
-      <div className="max-w-4xl w-full bg-white rounded-2xl shadow-xl flex overflow-hidden">
+      <div className="max-w-4xl h- w-full bg-white rounded-2xl shadow-xl flex overflow-hidden">
         {/* Left Side - Form */}
-        <div className="w-full lg:w-1/2 p-6 md:p-8">
+        <div className="w-full lg:w-1/2 p-6 md:p-12">
           <div className="text-center mb-4">
             <h1 className="text-3xl font-bold text-gray-900 mb-2">Create an account</h1>
             <p className="text-gray-600">Join our community today</p>
-          </div>
-
-          {/* Social Signup Buttons */}
-          <div className="space-y-3 mb-8">
-            <button className="w-full flex items-center justify-center gap-2 bg-gray-900 text-white p-3 rounded-lg hover:bg-gray-800 transition">
-              <Github size={20} />
-              <span>Sign up with Github</span>
-            </button>
-            <button className="w-full flex items-center justify-center gap-2 bg-[#1DA1F2] text-white p-3 rounded-lg hover:bg-[#1a8cd8] transition">
-              <Twitter size={20} />
-              <span>Sign up with Twitter</span>
-            </button>
-            <button className="w-full flex items-center justify-center gap-2 bg-[#4267B2] text-white p-3 rounded-lg hover:bg-[#365899] transition">
-              <Facebook size={20} />
-              <span>Sign up with Facebook</span>
-            </button>
           </div>
 
           <div className="relative my-2">
@@ -52,7 +36,7 @@ const SignUpPage = () => {
               <div className="w-full border-t border-gray-900"></div>
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-4 bg-white text-gray-900">Or sign up with email</span>
+              <span className="px-4 bg-white text-gray-900">Sign up with email</span>
             </div>
           </div>
 
@@ -133,7 +117,7 @@ const SignUpPage = () => {
             </button>
           </form>
 
-          <p className="text-center text-gray-600 mt-4">
+          <p className="text-center text-gray-600 mt-6">
             Already have an account?{' '}
             <Link to="/" className="text-blue-500 hover:text-blue-600 font-medium">
               Sign in
@@ -142,9 +126,9 @@ const SignUpPage = () => {
         </div>
 
         {/* Right Side - Image */}
-        <div className="w-1/2 hidden lg:block relative">
+        <div className="w-1/2 h-[37.5rem] hidden lg:block relative">
           <img
-            src={signUpImg}
+            src="https://images.unsplash.com/photo-1579548122080-c35fd6820ecb?auto=format&fit=crop&w=800&q=80"
             alt="Collaboration"
             className="w-full h-full"
           />
